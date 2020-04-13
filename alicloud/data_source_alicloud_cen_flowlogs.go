@@ -1,18 +1,17 @@
 package alicloud
 
 import (
-	"regexp"
-
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/cbn"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 	"github.com/terraform-providers/terraform-provider-alicloud/alicloud/connectivity"
+	"regexp"
 )
 
 func dataSourceAlicloudCenFlowlogs() *schema.Resource {
 	return &schema.Resource{
-		Read: dataSourceAlicloudCenFlowlogRead,
+		Read: dataSourceAlicloudCenFlowlogsRead,
 		Schema: map[string]*schema.Schema{
 			"cen_id": {
 				Type:     schema.TypeString,
@@ -102,7 +101,7 @@ func dataSourceAlicloudCenFlowlogs() *schema.Resource {
 	}
 }
 
-func dataSourceAlicloudCenFlowlogRead(d *schema.ResourceData, meta interface{}) error {
+func dataSourceAlicloudCenFlowlogsRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*connectivity.AliyunClient)
 
 	request := cbn.CreateDescribeFlowlogsRequest()
