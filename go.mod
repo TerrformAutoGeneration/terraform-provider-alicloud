@@ -1,5 +1,7 @@
 module github.com/terraform-providers/terraform-provider-alicloud
 
+go 1.14
+
 require (
 	github.com/Sirupsen/logrus v0.0.0-20181010200618-458213699411 // indirect
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.77
